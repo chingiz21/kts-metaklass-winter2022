@@ -2,10 +2,10 @@ import { ApiResponse, IApiStore, RequestParams } from './types';
 import qs from 'qs';
 
 export default class ApiStore implements IApiStore {
-    readonly baseUrl: string = 'https://api.github.com/';
+    readonly baseUrl: string;
     
     constructor(baseUrl: string) {
-        baseUrl = this.baseUrl;
+        this.baseUrl = baseUrl;
     }
 
     async request<SuccessT, ErrorT = any, ReqT = {}>(params: RequestParams<ReqT>): Promise<ApiResponse<SuccessT, ErrorT>> {
